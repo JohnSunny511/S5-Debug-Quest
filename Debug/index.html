@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor with Correct Answer Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #editor {
+            width: 100%;
+            height: 150px;
+        }
+        #message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DEBUG THE FOLLOWING SNIPPET</h1>
+    <textarea id="editor" placeholder="Type your answer here...">print("Hello World")</textarea>
+    <p id="message"></p>
+
+    <script>
+        const correctLines = [
+            'print("Hello World");',
+            'The second correct answer.'
+        ];
+
+        const editor = document.getElementById('editor');
+        const message = document.getElementById('message');
+
+        editor.addEventListener('input', () => {
+            const text = editor.value;
+            if (correctLines.some(line => text.includes(line))) {
+                message.textContent = "CORRECT ANSWER";
+            } else {
+                message.textContent = "";
+            }
+        });
+    </script>
+
+</body>
+</html>
