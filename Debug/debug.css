@@ -1,0 +1,12 @@
+body {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#editor {
+    height: 90px;
+    border: 4px solid #ccc; 
+    width: 60%;
+}
+.message {
+    color: green;
+    font-weight: bold;
+}

@@ -4,32 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Editor with Correct Answer Check</title>
+    <link rel="stylesheet" href="debug.css" type="text/css">
+    <link rel="icon" href="https://media.licdn.com/dms/image/D5603AQFeT9F-5uhTTg/profile-displayphoto-shrink_200_200/0/1690612942131?e=2147483647&v=beta&t=qJWEfGprnQkisKxiE0OYA-THYBGBr7OwwuAkRdFFUVA">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-      .bg-info {
-    background-color: #ECD69F !important; 
-        }
-
-
         body {
             transition: background-color 0.3s, color 0.3s;
         }
         .light-theme {
-            background-color:#00674F; /* Light background */
-            color: #212529; /* Dark text */
+            background-color: gray;
+            color: #d80000;
         }
         .dark-theme {
-            background-color: #343a40; /* Dark background */
-            color: #ffffff; /* Light text */
+            background-color: grey;
+            color: #ff0505;
         }
         #editor {
             height: 60vh; /* Make the editor taller */
             border: 3px solid grey;
             margin: 20px 90px;
             width:  90vh;
-            border-radius: 8px; /* Add rounded corners */
-            overflow: hidden;
-        }
+        }                               
         /* Updated theme toggle button styling */
         #themeToggle {
             margin: 10px;
@@ -56,7 +51,7 @@
     <header class="bg-info" style="position: fixed; width:100%; z-index:1">
         <div class="row text-white">
             <div class="col-md-6 col-9 pt-4 pl-5">
-                <h2 id="name">Debug Quest</h2>
+                <h2>Debug Quest</h2>
             </div>
             <div class="col-md-6 p-4 col-3 my-auto">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -102,7 +97,7 @@
                     { token: 'keyword', foreground: '0000FF' },
                 ],
                 colors: {
-                    'editor.background': '#FFFFFF',
+                    'editor.background': '#FF0000',
                     'editor.foreground': '#000000',
                 }
             });
@@ -116,7 +111,7 @@
                     { token: 'keyword', foreground: '0000FF' },
                 ],
                 colors: {
-                    'editor.background': '#282828',
+                    'editor.background': '#1E1E1E',
                     'editor.foreground': '#FFFFFF',
                 }
             });
@@ -151,7 +146,7 @@
             // Correct answer check
             const correctLines = [
                 'print("Hello World");',
-                'The second correct answer.' // This is just a placeholder for the second answer.
+                'The second correct answer.'
             ];
             const message = document.getElementsByClassName('message')[0];
 

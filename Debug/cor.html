@@ -1,0 +1,109 @@
+<html lang="en"><head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor with Correct Answer Check</title>
+    <link rel="stylesheet" href="debug.css" type="text/css">
+    <link rel="icon" href="https://media.licdn.com/dms/image/D5603AQFeT9F-5uhTTg/profile-displayphoto-shrink_200_200/0/1690612942131?e=2147483647&amp;v=beta&amp;t=qJWEfGprnQkisKxiE0OYA-THYBGBr7OwwuAkRdFFUVA">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-info" style="position: fixed; width:100%; z-index:1">
+        <div class="row text-white">
+            <div class="col-md-6 col-9  pt-4 pl-5">
+                <h2>Debug Quest</h2>
+            </div>
+            <div class="col-md-6 p-4 col-3 my-auto">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link text-white" href="#home-section">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#service-section">Difficulty</a>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="#contact-section">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#experience-section">Profile</a>
+                          </li>
+                    </ul></div>
+                  </nav>
+            </div>
+        </div>
+        
+    </header>
+    <section style="padding-top:10em;"></section>
+    <h1>DEBUG THE FOLLOWING SNIPPET</h1>
+    <textarea class="editor" placeholder="Type your answer here...">print("Hello World")</textarea>
+    <p class="message">CORRECT ANSWER</p>
+
+    <script>
+        const correctLines = [
+            'print("Hello World");',
+            'The second correct answer.'
+        ];
+
+        const editor = document.getElementsByClassName('editor')[0];
+        const message = document.getElementsByClassName('message')[0];
+
+        editor.addEventListener('input', () => {
+            const text = editor.value.trim();
+            // Check for exact match
+            if (correctLines.includes(text)) {
+                message.textContent = "CORRECT ANSWER";
+            } else {
+                message.textContent = "";
+            }
+        });
+    </script>
+    
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+ 
+</body></html>
