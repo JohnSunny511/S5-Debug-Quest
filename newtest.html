@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Competition - CodeIt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">CodeIt</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Challenges</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container">
+        <!-- Problems Section -->
+        <div class="problem-list">
+            <h2>Coding Challenges</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Problem</th>
+                        <th>Difficulty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">Two Sum</a></td>
+                        <td>Easy</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="#">Longest Substring Without Repeating Characters</a></td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="#">Median of Two Sorted Arrays</a></td>
+                        <td>Hard</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Problem Description and Code Editor -->
+        <div class="problem-details">
+            <h2>Problem Description</h2>
+            <p>Select a problem to see the description here.</p>
+            <!-- Code Editor (you can integrate CodeMirror or similar libraries) -->
+            <textarea class="code-editor" placeholder="Write your code here..."></textarea>
+            <button class="submit-btn">Submit Code</button>
+        </div>
+    </div>
+
+</body>
+
+<style>/* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    /* Navigation Bar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #282c34;
+        padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        color: #61dafb;
+        font-weight: bold;
+    }
+    
+    .nav-links {
+        list-style: none;
+    }
+    
+    .nav-links li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    
+    .nav-links a:hover {
+        color: #61dafb;
+    }
+    
+    /* Main Container */
+    .container {
+        display: flex;
+        margin: 2rem;
+        justify-content: space-between;
+    }
+    
+    /* Problems List */
+    .problem-list {
+        width: 40%;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .problem-list h2 {
+        margin-bottom: 1rem;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #61dafb;
+        color: white;
+    }
+    
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    
+    a {
+        color: #61dafb;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Problem Details and Code Editor */
+    .problem-details {
+        width: 55%;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .code-editor {
+        width: 100%;
+        height: 200px;
+        margin-top: 1rem;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    .submit-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 10px 15px;
+        background-color: #61dafb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .submit-btn:hover {
+        background-color: #21a1f1;
+    }
+    </style>
+</html>

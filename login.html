@@ -98,6 +98,7 @@
     </style>
 </head>
 <body>
+    
     <div class="login-container">
         <div class="login-box">
             <div class="icon-container">
@@ -131,23 +132,31 @@
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form from submitting automatically
-            
+    
             // Get username and password values
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            
-            // Hardcoded credentials
-            const correctUsername = "John";
-            const correctPassword = "johnpass";
-            
-            // Check if entered credentials are correct
-            if (username === correctUsername && password === correctPassword) {
+    
+            // List of valid users
+            const users = [
+                { username: "John", password: "johnpass" },
+                { username: "Jane", password: "janepass" },
+                { username: "Alice", password: "alicepass" },
+                { username: "Bob", password: "bobpass" },
+                { username: "Charlie", password: "charliepass" }
+            ];
+    
+            // Check if the entered credentials match any user
+            const isValidUser = users.some(user => user.username === username && user.password === password);
+    
+            if (isValidUser) {
                 // Redirect to the desired webpage
-                window.location.href = "http://127.0.0.1:5500/Debug/test.html";
+                window.location.href = "http://127.0.0.1:5500/difficulty.html";
             } else {
                 alert("Invalid username or password. Please try again.");
             }
         });
     </script>
+    
 </body>
 </html>

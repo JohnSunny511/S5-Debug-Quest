@@ -45,7 +45,7 @@
         #themeToggle {
             margin-top: 8px;
             margin-left: 95px;
-            padding-top: 2px;
+            padding-top:2px;
             width: 40px;
             /* Smaller width */
             height: 40px;
@@ -62,6 +62,7 @@
 
         #themeToggle:hover {
             transform: scale(1.1);
+            
         }
 
         .message {
@@ -73,6 +74,7 @@
             float: left;
             padding-left: 3px;
             padding-top: 1px;
+            
         }
 
         .right {
@@ -103,20 +105,22 @@
             color: #ffffff;
         }
 
-        .container {
+        .contianer
+        {
             margin-left: 20px;
             margin-top: 55px;
-            padding-top: 6.5em;
+            padding-top:6.5em;
         }
 
-        #Hint {
+        #Hint
+        {
             margin-bottom: 40px;
         }
     </style>
 </head>
 
 <body class="light-theme">
-    <header class="bg-info" style="position: fixed; width: 100%; z-index: 1">
+    <header class="bg-info" style="position: fixed; width:100%; z-index:1">
         <div class="row text-white">
             <div class="col-md-6 col-9 pt-4 pl-5">
                 <h2 id="name">Debug Quest</h2>
@@ -148,96 +152,104 @@
             </div>
         </div>
     </header>
-
     <div class="left">
-        <section class="container">
-            <button id="themeToggle" class="btn btn-secondary">☀️</button> <!-- Button with light icon -->
-            <button class="Hint">Hint</button>
+        <section class="contianer">
+        <button id="themeToggle" class="btn btn-secondary">☀️</button> <!-- Button with light icon -->
+        <button class="Hint">Hint</button>  
         </section>
-        <div id="editor"></div>
+         <div id="editor"></div>
+        
+        
         <p class="message"></p>
 
         <script src="https://unpkg.com/monaco-editor/min/vs/loader.js"></script>
         <script>
-    require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
-    require(['vs/editor/editor.main'], function () {
-        // Define light theme
-        monaco.editor.defineTheme('myLightTheme', {
-            base: 'vs',
-            inherit: true,
-            rules: [
-                { token: 'comment', foreground: '008800', fontStyle: 'italic' },
-                { token: 'keyword', foreground: '0000FF' },
-            ],
-            colors: {
-                'editor.background': '#FFFFFF',
-                'editor.foreground': '#000000',
-            }
-        });
+            require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' } });
+            require(['vs/editor/editor.main'], function () {
+                // Define light theme
+                monaco.editor.defineTheme('myLightTheme', {
+                    base: 'vs',
+                    inherit: true,
+                    rules: [
+                        { token: 'comment', foreground: '008800', fontStyle: 'italic' },
+                        { token: 'keyword', foreground: '0000FF' },
+                    ],
+                    colors: {
+                        'editor.background': '#FFFFFF',
+                        'editor.foreground': '#000000',
+                    }
+                });
 
-        // Define dark theme
-        monaco.editor.defineTheme('myDarkTheme', {
-            base: 'vs-dark',
-            inherit: true,
-            rules: [
-                { token: 'comment', foreground: '008800', fontStyle: 'italic' },
-                { token: 'keyword', foreground: '0000FF' },
-            ],
-            colors: {
-                'editor.background': '#282828',
-                'editor.foreground': '#FFFFFF',
-            }
-        });
+                // Define dark theme
+                monaco.editor.defineTheme('myDarkTheme', {
+                    base: 'vs-dark',
+                    inherit: true,
+                    rules: [
+                        { token: 'comment', foreground: '008800', fontStyle: 'italic' },
+                        { token: 'keyword', foreground: '0000FF' },
+                    ],
+                    colors: {
+                        'editor.background': '#282828',
+                        'editor.foreground': '#FFFFFF',
+                    }
+                });
 
-        // Set initial theme
-        let currentTheme = 'myLightTheme';
-        monaco.editor.setTheme(currentTheme);
-
-        // Create the editor
-        const editor = monaco.editor.create(document.getElementById('editor'), {
-            value: 'print("Hello World")',
-            language: 'python'
-        });
-
-        // Theme toggle button functionality
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            if (currentTheme === 'myLightTheme') {
-                currentTheme = 'myDarkTheme';
+                // Set initial theme
+                let currentTheme = 'myLightTheme';
                 monaco.editor.setTheme(currentTheme);
-                document.body.classList.remove('light-theme');
-                document.body.classList.add('dark-theme');
-                document.getElementById('themeToggle').textContent = '🌙'; // Dark mode icon
-            } else {
-                currentTheme = 'myLightTheme';
-                monaco.editor.setTheme(currentTheme);
-                document.body.classList.remove('dark-theme');
-                document.body.classList.add('light-theme');
-                document.getElementById('themeToggle').textContent = '☀️'; // Light mode icon
-            }
-        });
 
-        const correctAnswer = 'print("Hello World")';
+                // Create the editor
+                const editor = monaco.editor.create(document.getElementById('editor'), {
+                    value: 'print("Hello World")',
+                    language: 'python'
+                });
 
-        // Dynamic content update for code info box
-        const codeInfoBox = document.getElementById('code-info-box');
-        editor.onDidChangeModelContent(() => {
-            const userCode = editor.getValue();
-            if (userCode.trim() === correctAnswer) {
-                codeInfoBox.textContent = 'Correct! The output will be: Hello World';
-            } else {
-                codeInfoBox.textContent = 'Try again! Make sure your code prints "Hello World".';
-            }
-        });
-    });
-</script>
+                // Theme toggle button functionality
+                document.getElementById('themeToggle').addEventListener('click', () => {
+                    if (currentTheme === 'myLightTheme') {
+                        currentTheme = 'myDarkTheme';
+                        monaco.editor.setTheme(currentTheme);
+                        document.body.classList.remove('light-theme');
+                        document.body.classList.add('dark-theme');
+                        document.getElementById('themeToggle').textContent = '🌙'; // Dark mode icon
+                    } else {
+                        currentTheme = 'myLightTheme';
+                        monaco.editor.setTheme(currentTheme);
+                        document.body.classList.remove('dark-theme');
+                        document.body.classList.add('light-theme');
+                        document.getElementById('themeToggle').textContent = '☀️'; // Light mode icon
+                    }
+                });
 
+                // Correct answer check
+                const correctLines = [
+                    'print("Hello World");',
+                    'The second correct answer.' // This is just a placeholder for the second answer.
+                ];
+                const message = document.getElementsByClassName('message')[0];
+
+                editor.onDidChangeModelContent(() => {
+                    const text = editor.getValue().trim();
+                    if (correctLines.includes(text)) {
+                        message.textContent = "CORRECT ANSWER";
+                    } else {
+                        message.textContent = "";
+                    }
+                });
+
+                // Update code information box dynamically
+                const codeInfoBox = document.getElementById('code-info-box');
+                editor.onDidChangeModelContent(() => {
+                    codeInfoBox.textContent = "Current Code:\n" + editor.getValue();
+                });
+            });
+        </script>
     </div>
-
     <div class="right">
-        <section style="padding-top: 13em;"></section>
+        <section style="padding-top:13em;"></section>
         <div id="code-info-box" class="code-info-box">
-            This is the most basic program that any programmer has ever made. It shows how the print function works.
-            Its output will be "Hello World".
+            This is the most basic program that any programmer has ever made.It shows how the print function works
+            It's output will be "Hello World"
         </div>
     </div>
 </body>
